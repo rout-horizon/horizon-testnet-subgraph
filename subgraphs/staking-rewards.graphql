@@ -1,0 +1,26 @@
+type Stake @entity {
+  id: ID!       "tx hash"
+  contract: String!
+  account: String!
+  amount: BigDecimal!
+  typeofStake: String!      "Add/Withdraw/Claim"
+  timestamp: BigInt!
+}
+
+type Staker @entity {
+  id: ID!       "user + contract"
+  account: String!
+  contract: String!
+  totalStaked: BigDecimal!
+  totalClaimed: BigDecimal!
+}
+
+type StakingContract @entity {
+  " lowercase address of the staking contract"
+  id: ID!
+  address: String!
+  stakingToken: String!
+  rewardsToken: String!
+  totalStaked: BigDecimal!
+  totalClaimed: BigDecimal!
+}
